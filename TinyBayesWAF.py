@@ -317,29 +317,24 @@ if __name__ == '__main__':
         print argv[0], "[port] [Destination address]"
         print argv[0], "--sample -s naivebayes Sample"
         print argv[0], "-t --training training naivebayes"
+        print argv[0], "-f --fileload NaiveBayesWAF todo trainnngdataimport"
     
     elif argv [1:] and argv[1] in ('-t','--training'):
         #トレーニングデータ作成
         #以前はトレーニング後のデータをPickleデータとして保存していたが
         #コードがめちゃくちゃだった為、削除
         #実行まで時間がかかるから追加頑張って下さい
-        #historyに保存してあるからよく見るように
         dummy = 0
 
     elif argv [1:] and argv[1] in ('-s','--sample'):
         #サンプルデータ実行
         naive_test()
-
     elif argv [1:] and argv[1] in ('-f','--fileload'):
         #トレーニングデータを読み込んでフィルタリング開始
         #トレーニングデータ読み込みを削除
-        #historyに保存してあるからよく見るように
-        dummy = 0
-        #トレーニングデータを取得
+        #トレーニングデータを取得、実行
         train_data()
-
-        """   
-
+ 
         if argv[2:]:
             for name in argv[2:]:
                 client = socket.gethostbyname(name)
@@ -348,7 +343,7 @@ if __name__ == '__main__':
             print "Any clients will be served..."
         BaseHTTPServer.test(ProxyHandler, ThreadingHTTPServer)
 
-        """
+        
     else:
         if argv[2:]:
             for name in argv[2:]:
